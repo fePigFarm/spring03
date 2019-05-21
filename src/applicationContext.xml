@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- 扫描器，扫描哪些包 -->
+    <context:component-scan base-package="com.faith.dao"></context:component-scan>
 
     <!--id：唯一标识符 class指定类-->
     <bean id="student" class="com.faith.entity.StudentClass">
@@ -13,4 +19,60 @@
 
     <bean id="java" class="com.faith.newinstance.JavaCourse"></bean>
     <bean id="html" class="com.faith.newinstance.HtmlCourse"></bean>
+
+    <bean id="teacher" class="com.faith.entity.Teacher">
+        <property name="age" value="35"></property>
+        <property name="name" value="亚萍"></property>
+    </bean>
+
+    <bean id="course" class="com.faith.entity.Course" autowire="byName">
+        <property name="courseCount" value="4"></property>
+        <property name="couserName" value="英语课"></property>
+        <!--将teacher对象注入到课程对象-->
+        <!--<property name="teacher" ref="teacher"></property>-->
+
+        <!--<constructor-arg value="数学课" index="0"></constructor-arg>-->
+        <!--<constructor-arg value="5" index="1"></constructor-arg>-->
+        <!--<constructor-arg ref="teacher" index="2"></constructor-arg>-->
+    </bean>
+
+    <bean id="collections" class="com.faith.entity.AllCollection">
+        <property name="list">
+            <list>
+                <value>踢足球</value>
+                <value>打篮球</value>
+                <value>打羽毛球</value>
+            </list>
+        </property>
+        
+        <property name="strings">
+            <array>
+                <value>语文</value>
+                <value>数学</value>
+                <value>英语</value>
+            </array>
+        </property>
+        
+        <property name="set">
+            <set>
+                <value>abc</value>
+                <value>def</value>
+                <value>def</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="foot" value="足球"></entry>
+                <entry key="bas" value="篮球"></entry>
+            </map>
+        </property>
+
+        <property name="props">
+            <props>
+                <prop key="prop1">prop_a</prop>
+                <prop key="props">prop_b</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

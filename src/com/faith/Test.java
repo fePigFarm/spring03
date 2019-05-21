@@ -1,5 +1,8 @@
 package com.faith;
 
+import com.faith.dao.StudentDaoImpl;
+import com.faith.entity.AllCollection;
+import com.faith.entity.Course;
 import com.faith.entity.StudentClass;
 import com.faith.factory.CourseFactory;
 import com.faith.newinstance.ICourse;
@@ -26,6 +29,24 @@ public class Test {
         studentClass.learn("java");
     }
 
+    public static void testDi() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Course course = (Course) context.getBean("course");
+        course.showInfo();
+    }
+
+    public static void learnDIWithCollection() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AllCollection allCollection = (AllCollection) context.getBean("collections");
+        System.out.println(allCollection.showInfo());
+    }
+
+    public static void learnAnno() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        StudentDaoImpl studentDao = (StudentDaoImpl) context.getBean("studentDao");
+        studentDao.addStudent();
+    }
+
     public static void main(String[] args) {
         //  测试IOC
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -38,5 +59,10 @@ public class Test {
 
         StudentClass st = new StudentClass();
         st.learn("html");
+
+        testDi();
+        learnDIWithCollection();
+
+        learnAnno();
     }
 }
