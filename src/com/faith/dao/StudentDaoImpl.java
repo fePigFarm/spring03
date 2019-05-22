@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("studentDao")
-public class StudentDaoImpl {
+public class StudentDaoImpl implements IStudentDao{
     public void addStudent() {
         System.out.println("增加学生类");
     }
