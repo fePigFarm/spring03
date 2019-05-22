@@ -44,9 +44,16 @@ public class Test {
     public static void learnAnno() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         StudentDaoImpl studentDao = (StudentDaoImpl) context.getBean("studentDao");
-        StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
-        studentDao.addStudent(student);
+        // StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
+        // studentDao.addStudent(student);
+        studentDao.addStudent(new StudentClass());
     }
+
+//    public static void testAop() {
+//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        StudentDaoImpl studentDao = (StudentServiceImpl) context.getBean("studentDao");
+//        StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
+//    }
 
     public static void main(String[] args) {
         //  测试IOC

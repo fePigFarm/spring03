@@ -3,6 +3,8 @@ package com.faith.service;
 import com.faith.dao.IStudentDao;
 import com.faith.dao.StudentDaoImpl;
 import com.faith.entity.StudentClass;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Auther: yangguoqiang01
@@ -24,7 +26,15 @@ public class StudentServiceImpl implements IStudentService {
         this.iStudentDao = iStudentDao;
     }
 
+    // 加入事物，要不都成功，要不都失败
+    // readOnly = false 不是只读
+    // 事物的传播行为 propagation
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void addStudent(StudentClass studentClass) {
+        iStudentDao.addStudent(studentClass);
+    }
 
+    public void deleteStudentByNo(int no) {
+        iStudentDao.deleteStudentByNo(no);
     }
 }

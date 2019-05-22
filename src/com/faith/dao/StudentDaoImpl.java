@@ -15,4 +15,8 @@ public class StudentDaoImpl implements IStudentDao {
     public void addStudent(StudentClass studentClass) {
         System.out.println("增加学生类");
     }
+
+    public void deleteStudentByNo(int no) {
+        System.out.println("删除一个学生，学号为：" + no);
+    }
 }

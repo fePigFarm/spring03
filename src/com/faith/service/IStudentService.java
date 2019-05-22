@@ -10,4 +10,5 @@ import com.faith.entity.StudentClass;
  */
 public interface IStudentService {
     void addStudent(StudentClass studentClass);
+    void deleteStudentByNo(int no);
 }
