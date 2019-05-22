@@ -44,7 +44,8 @@ public class Test {
     public static void learnAnno() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         StudentDaoImpl studentDao = (StudentDaoImpl) context.getBean("studentDao");
-        studentDao.addStudent();
+        StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
+        studentDao.addStudent(student);
     }
 
     public static void main(String[] args) {

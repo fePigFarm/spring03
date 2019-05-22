@@ -30,6 +30,12 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
+    <bean id="iStudentDao" class="com.faith.dao.StudentDaoImpl"></bean>
+
+    <bean id="studentDao" class="com.faith.service.StudentServiceImpl">
+        <property name="iStudentDao" ref="iStudentDao"></property>
+    </bean>
+
     <!--id：唯一标识符 class指定类-->
     <bean id="student" class="com.faith.entity.StudentClass">
         <property name="stuName" value="小米"></property>

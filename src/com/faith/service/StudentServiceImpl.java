@@ -2,6 +2,7 @@ package com.faith.service;
 
 import com.faith.dao.IStudentDao;
 import com.faith.dao.StudentDaoImpl;
+import com.faith.entity.StudentClass;
 
 /**
  * @Auther: yangguoqiang01
@@ -11,9 +12,19 @@ import com.faith.dao.StudentDaoImpl;
  */
 public class StudentServiceImpl implements IStudentService {
     // 其中  new StudentDaoImpl(); spring可以帮忙
-    IStudentDao iStudentDao = new StudentDaoImpl();
+    // IStudentDao iStudentDao = new StudentDaoImpl();
 
-    public void addStudent() {
+    IStudentDao iStudentDao;
+
+    public IStudentDao getiStudentDao() {
+        return iStudentDao;
+    }
+
+    public void setiStudentDao(IStudentDao iStudentDao) {
+        this.iStudentDao = iStudentDao;
+    }
+
+    public void addStudent(StudentClass studentClass) {
 
     }
 }

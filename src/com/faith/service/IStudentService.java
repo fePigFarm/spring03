@@ -1,5 +1,7 @@
 package com.faith.service;
 
+import com.faith.entity.StudentClass;
+
 /**
  * @Auther: yangguoqiang01
  * @Date: 2019-05-22
@@ -7,5 +9,5 @@ package com.faith.service;
  * @version: 1.0
  */
 public interface IStudentService {
-    void addStudent();
+    void addStudent(StudentClass studentClass);
 }
