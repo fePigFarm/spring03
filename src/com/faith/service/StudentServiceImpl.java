@@ -35,6 +35,6 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     public void deleteStudentByNo(int no) {
-        iStudentDao.deleteStudentByNo(no);
+        System.out.println(no + " --- 序号");
     }
 }

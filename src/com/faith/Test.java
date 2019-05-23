@@ -6,6 +6,7 @@ import com.faith.entity.Course;
 import com.faith.entity.StudentClass;
 import com.faith.factory.CourseFactory;
 import com.faith.newinstance.ICourse;
+import com.faith.service.StudentServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -44,16 +45,15 @@ public class Test {
     public static void learnAnno() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         StudentDaoImpl studentDao = (StudentDaoImpl) context.getBean("studentDao");
-        // StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
-        // studentDao.addStudent(student);
-        studentDao.addStudent(new StudentClass());
+        StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
+        studentDao.addStudent(student);
     }
 
-//    public static void testAop() {
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        StudentDaoImpl studentDao = (StudentServiceImpl) context.getBean("studentDao");
-//        StudentClass student = context.getBean("student", com.faith.entity.StudentClass.class);
-//    }
+    public static void testAop() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Course course = (Course) context.getBean("course");
+        course.showInfo();
+    }
 
     public static void main(String[] args) {
         //  测试IOC
@@ -71,6 +71,8 @@ public class Test {
         testDi();
         learnDIWithCollection();
 
-        learnAnno();
+        // learnAnno();
+
+        testAop();
     }
 }
