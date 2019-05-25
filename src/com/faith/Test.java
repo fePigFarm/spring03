@@ -49,7 +49,13 @@ public class Test {
         studentDao.addStudent(student);
     }
 
-    public static void testAop() {
+//    public static void testAop() {
+//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        Course course = (Course) context.getBean("course");
+//        course.showInfo();
+//    }
+
+    public static void testAnAop() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Course course = (Course) context.getBean("course");
         course.showInfo();
@@ -73,6 +79,8 @@ public class Test {
 
         // learnAnno();
 
-        testAop();
+        // testAop();
+
+        testAnAop();
     }
 }

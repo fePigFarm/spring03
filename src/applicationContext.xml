@@ -14,7 +14,11 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 扫描器，扫描哪些包 -->
-    <context:component-scan base-package="com.faith.dao"></context:component-scan>
+    <context:component-scan base-package="com.faith.dao,com.faith.aop,com.faith.entity"></context:component-scan>
+
+    <!-- 开启注解对AOP的支持（@Aspect）-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
 
     <!-- 配置数据库相关 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
