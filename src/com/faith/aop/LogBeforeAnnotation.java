@@ -1,5 +1,6 @@
 package com.faith.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -20,12 +21,12 @@ import org.springframework.stereotype.Component;
 public class LogBeforeAnnotation {
 
     @Before("execution(* com.faith.entity.Course.showInfo())") // 属性定义切点
-    public void beforeMethod() {
+    public void beforeMethod(JoinPoint joinPoint) {
         System.out.println("我是注解形式的前置通知函数");
     }
 
     @AfterReturning("execution(* com.faith.entity.Course.showInfo())")
-    public void afterMethod() {
+    public void afterMethod(JoinPoint joinPoint) {
         System.out.println("我是注解形式的后置通知函数");
     }
 }
